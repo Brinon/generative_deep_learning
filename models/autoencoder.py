@@ -310,7 +310,7 @@ class VariationalAutoencoder(Autoencoder):
 
         self.encoder = Model(encoder_input, encoder_output)
 
-        ### THE DECODER
+        # Decoder
         decoder_input = Input(shape=(self.z_dim,), name="decoder_input")
 
         x = Dense(np.prod(shape_before_flattening))(decoder_input)
@@ -362,7 +362,9 @@ class VariationalAutoencoder(Autoencoder):
         def divergence_loss(y_true, y_pred):
             """measuers KL divergence between the predicted distribution"""
             # first half of y_true is mu, the other half is log_var
+            print(f'ypred: {y_pred}')
             shape = y_pred.get_shape().as_list()[0]
+            print(f'prediction shape: {shape}')
             idx = shape // 2
 
             mu = y_pred[:idx]

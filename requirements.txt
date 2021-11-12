@@ -1,4 +1,5 @@
-tensorflow>=2.7
+# tensorflow is installed in the dockerfile
+#tensorflow>=2.7
 jupyter
 ipython
 matplotlib
